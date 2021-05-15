@@ -105,12 +105,6 @@ func (s *Signer) setDigest() (err error) {
 				}
 			}
 		}
-		for _, transform := range transforms.SelectElements("Transform") {
-			doc, err = processTransform(transform, doc)
-			if err != nil {
-				return err
-			}
-		}
 
 		doc, err := s.getReferencedXML(ref, doc)
 		if err != nil {
