@@ -97,6 +97,14 @@ func (s *Signer) setDigest() (err error) {
 	for _, ref := range references {
 		doc := s.xml.Copy()
 		transforms := ref.SelectElement("Transforms")
+		if transforms != nil {
+			for _, transform := range transforms.SelectElements("Transform") {
+				doc, err = processTransform(transform, doc)
+				if err != nil {
+					return err
+				}
+			}
+		}
 		for _, transform := range transforms.SelectElements("Transform") {
 			doc, err = processTransform(transform, doc)
 			if err != nil {
