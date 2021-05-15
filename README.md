@@ -9,7 +9,7 @@ Other packages that provide similar functionality rely on C libraries, which mak
 
 ### Install
 
-`go get github.com/ma314smith/signedxml`
+`go get github.com/aerosales10/signedxml`
 
 ### Included Algorithms
 
